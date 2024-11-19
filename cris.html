@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Mercado Artesanal</title>
+    <link rel="stylesheet" type="text/css" href="cris.css"> 
+
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .ventana-emergente {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 10000;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay">
+        <div class="ventana-emergente">
+            <h2>Registro</h2>
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>Bienvenido al Mercado Artesanal</h1>
+            <nav>
+                <div class="nav-container">
+                    <a href="C:\Users\Rigo\Downloads\cris/comercio.html">Comercio</a>
+                    <a href="C:\Users\Rigo\Downloads\cris/cuenta.html">Mi Cuenta</a>
+                    <a href="C:\Users\Rigo\Downloads\cris/pedidos-personalizados.html">Pedidos Personalizado</a>
+                </div>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar...">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.002.062.009.098.022l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="cart">
+                <a href="C:\Users\Rigo\Downloads\cris/carrito.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3.07a.5.5 0 0 0 .707.707l5.25 5.25a.5.5 0 0 0 .707 0l5.25-5.25a.5.5 0 1 0-.707-.707l-3.11 3.11v5.25a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-9A.5.5 0 0 0 15.5 1H14a.5.5 0 0 0-.485.379L13.11 2.07a.5.5 0 0 1-.707-.707l-5.25-5.25a.5.5 0 0 1 0-.707l5.25-5.25a.5.5 0 0 1 .707 0l3.11 3.11v5.25a.5.5 0 0 1 .5.5h10a.5.5 0 0 1 .5-.5v-9a.5.5 0 0 1 .5-.5H2a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="bienvenida">
+        <p>"La artesanía es el arte de transformar lo cotidiano en belleza, donde cada creación cuenta una historia única."</p>
+    </section>
+
+    <section id="categorias">
+        <div class="categoria">
+            <img src="C:\Users\Rigo\Downloads\cris/IMG-20241112-WA0013.jpg" alt="">
+            <h2></h2>
+            <p></p>
+        </div>
+        <div class="categoria">
+            <img src="C:\Users\Rigo\Downloads\cris/IMG-20241112-WA0012.jpg" alt="">
+            <h2></h2>
+            <p></p>
+        </div>
+        <div class="categoria">
+            <img src="C:\Users\Rigo\Downloads\cris/IMG-20241112-WA0011.jpg" alt="">
+            <h2></h2>
+            <p></p>
+        </div>
+    </section>
+
+    <script>
+        function mostrarFormulario() {
+            document.getElementById("overlay").style.display = "flex";
+        }
+    </script>
+</body>
+</html>
