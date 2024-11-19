@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Mercado Artesanal</title>
+    <link rel="stylesheet" type="text/css" href="cris.css"> 
+</head>
+<style>
+#shoppingCart {
+    display: none; 
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100; 
+}
+
+#shoppingCart .cartItem {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+#shoppingCart .cartItem:last-child {
+    border-bottom: none;
+}
+
+#shoppingCart .checkoutBtn {
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#shoppingCart .checkoutBtn:hover {
+    background-color: #003366;
+}
+.boton-regresar{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color:#d9b89b;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.boton-regresar:hover {
+    background-color: #0056b3
+}
+
+
+#shoppingCartWindow {
+    display: none; 
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 300px; 
+}
+
+#shoppingCartWindow h2 {
+    margin-top: 0;
+}
+
+#shoppingCartWindow table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#shoppingCartWindow th,
+#shoppingCartWindow td {
+    text-align: left;
+    padding: 8px;
+}
+
+#shoppingCartWindow th {
+    background-color: #f2f2f2;
+}
+
+</style>
+<body>
+    <header>
+        <div class="container">
+            <h1>Objetos Artesanales</h1>
+        </div>
+    </header>
+    <section id="categorias">
+     <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/DFGHGBH5c82.jpg alt="">
+            <h2>Olla de barro sin <br> esmaltar para cocinar <br> con tapa</h2>
+            <p>MX$1 374.65+</p>
+              <button onclick="agregarAlCarrito('olla de barro sin esmaltar', '364.65')" class="boton-regresar">Añadir al carrito</button>       </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/Imagen-5afc9590.jpg alt="">
+            <h2>Set tazas de barro<br>mexicano tradicional</h2>
+            <p>MX$576.00+</p>
+           <button onclick="agregarAlCarrito('set tazas de barro', '576.00')" class="boton-regresar">Añadir al carrito</button>
+                   </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/TE1233.jpg alt="">
+            <h2>Cantarito de barro <br>de 16oz</h2>
+            <p>MX$576.00+</p>
+            <button onclick="agregarAlCarrito('cantarito de barro', '576.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/extraño.jpg alt="">
+            <h2>Olla de barro sin <br> esmaltar hecha a <br>mano con tapa</h2>
+            <p>MX$1 832.00+</p>
+             <button onclick="agregarAlCarrito('Olla de barro sin esmaltar hecha a mano', '832.00')" class="boton-regresar">Añadir al carrito</button>
+       </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/porque.jpg alt="">
+            <h2>1 Cazuela<br>pequeña -salsera- <br>olla de barro</h2>
+            <p>MX$822.84+</p>
+            <button onclick="agregarAlCarrito('1 cazuela pequeña -salsera- olla de barro', '122.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/mucho.jpg alt="">
+            <h2>Plato pozolero<br>mexicano de <br>barro artesanal</h2>
+            <p>MX$832.00+</p>
+            <button onclick="agregarAlCarrito('plato pozolero mexicano', '122.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+         <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/beby.jpg alt="">
+            <h2>Olla de barro <br>mexicana, plato de <<br>cazuela mexicana</h2>
+            <p>MX$822.84+</p>
+     <button onclick="agregarAlCarrito('Olla de barro mexicana', '122.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/beby.jpg alt="">
+            <h2>Vasijas y cantaros<br>artesanales y rusticos <br>de barro artesanal</h2>
+            <p>MX$120.00+</p>
+         <button onclick="agregarAlCarrito('Vasijas y cantaros artesanales', '122.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+
+    </section>
+    <a href="C:\Users\Rigo\Downloads\cris/comercio.html"
+     class="boton-regresar" >Regresar</a>
+
+    <div id="shoppingCartWindow">
+        <h2>Tu Carrito</h2>
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th>producto</th>
+                    <th>Precio</th>
+                    <th>cantidad</th>
+                    <th>sub total</th>
+                </tr>
+            </thead>
+            <tbody id="cartTableBody">
+                </tbody>
+        </table>
+        <button id="checkoutBtn" class="checkoutBtn">Finalizar</button>
+    </div>
+
+    <script>
+        let cartItems = []; 
+
+        function agregarAlCarrito(nombre, precio) {
+            cartItems.push({ nombre: nombre, precio: precio });
+            actualizarCarrito();
+            mostrarCarrito();
+        }
+
+        function actualizarCarrito() {
+            const cartTableBody = document.getElementById('cartTableBody');
+            cartTableBody.innerHTML = ''; 
+
+            cartItems.forEach(item => {
+                const row = cartTableBody.insertRow();
+                const nameCell = row.insertCell();
+                const priceCell = row.insertCell();
+
+                nameCell.textContent = item.nombre;
+                priceCell.textContent = 'MX$' + item.precio;
+            });
+        }
+
+        function mostrarCarrito() {
+            document.getElementById('shoppingCartWindow').style.display = 'block';
+        }
+
+        function ocultarCarrito() {
+            document.getElementById('shoppingCartWindow').style.display = 'none';
+        }
+
+        document.getElementById('checkoutBtn').addEventListener('click', function() {
+
+            console.log("Checkout Button Clicked");
+            console.log("Items in Cart:", cartItems);
+        
+            cartItems = [];
+            actualizarCarrito();
+            ocultarCarrito();
+        });
+
+        </script>
+    </body>
+    </html>
+  

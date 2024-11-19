@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Mercado Artesanal</title>
+    <link rel="stylesheet" type="text/css" href="cris.css"> 
+</head>
+<style>
+#shoppingCart {
+    display: none; 
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100; 
+}
+
+#shoppingCart .cartItem {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+#shoppingCart .cartItem:last-child {
+    border-bottom: none;
+}
+
+#shoppingCart .checkoutBtn {
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#shoppingCart .checkoutBtn:hover {
+    background-color: #003366;
+}
+.boton-regresar{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color:#d9b89b;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.boton-regresar:hover {
+    background-color: #0056b3
+}
+
+
+#shoppingCartWindow {
+    display: none; 
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 300px; 
+}
+
+#shoppingCartWindow h2 {
+    margin-top: 0;
+}
+
+#shoppingCartWindow table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#shoppingCartWindow th,
+#shoppingCartWindow td {
+    text-align: left;
+    padding: 8px;
+}
+
+#shoppingCartWindow th {
+    background-color: #f2f2f2;
+}
+
+</style>
+<body>
+    <header>
+        <div class="container">
+            <h1>Objetos Artesanales</h1>
+        </div>
+    </header>
+    <section id="categorias">
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/tu.jpg alt="">
+            <h2>Vestido rosa <br> Talla mediana </h2>
+            <p>MX$1 600.00+</p>
+            <button onclick="agregarAlCarrito('vestido rosa talla mediana', '600.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/niño.jpg alt="">
+            <h2>Sudadera calavera<br>talla chica unisex</h2>
+            <p>MX$800.00+</p>
+            <button onclick="agregarAlCarrito('sudadera calavera talla chica unisex', '800.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+        <img src=C:\Users\Rigo\Downloads\cris/senti.jpg alt="">
+            <h2>Sudadera calavera <br>talla chica unisex</h2>
+            <p>MX$800.00+</p>
+                   <button onclick="agregarAlCarrito('sudadera calavera talla chica unisex','800.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/que.jpg alt="">
+            <h2>Pañalero blanco <br>Talla 18 meses </h2>
+            <p>MX$360.00+</p>
+            <button onclick="agregarAlCarrito('pañalero blanco talla 18 meses, '360.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/dolio.jpg alt="">
+            <h2>vestido infantil<br>Talla 2</h2>
+            <p>MX$650.00+</p>
+            <button onclick="agregarAlCarrito('vestido infantil talla 2', '650.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/hata.jpg alt="">
+            <h2>Guayabero de lino<br>Talla extra grande <br>Color negro</h2>
+            <p>MX$850.00+</p>
+            <button onclick="agregarAlCarrito('Guayabero de lino talla estra grande', '850.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+         <div class="categoria">
+            <<img src=C:\Users\Rigo\Downloads\cris/beby.jpg alt="">
+            <h2>Tenis de loneta<br>Color negro con <<br>bordado multicolor</h2>
+            <p>MX$1 300.00+</p>
+            <button onclick="agregarAlCarrito('tenis de loneta color negro', '300.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/beby.jpg alt="">
+            <h2>Vasijas y cantaros<br>artesanales y rusticos <br>de barro artesanal</h2>
+            <p>MX$120.00+</p>
+            <button onclick="agregarAlCarrito('vasijas y cantaros artesanales', '120.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+
+    </section>
+    <a href="C:\Users\Rigo\Downloads\cris/comercio.html"
+     class="boton-regresar" >Regresar</a>
+
+    <div id="shoppingCartWindow">
+        <h2>Tu Carrito</h2>
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th>producto</th>
+                    <th>Precio</th>
+                    <th>cantidad</th>
+                    <th>sub total</th>
+                </tr>
+            </thead>
+            <tbody id="cartTableBody">
+                </tbody>
+        </table>
+        <button id="checkoutBtn" class="checkoutBtn">Finalizar</button>
+    </div>
+
+    <script>
+        let cartItems = []; 
+
+        function agregarAlCarrito(nombre, precio) {
+            cartItems.push({ nombre: nombre, precio: precio });
+            actualizarCarrito();
+            mostrarCarrito();
+        }
+
+        function actualizarCarrito() {
+            const cartTableBody = document.getElementById('cartTableBody');
+            cartTableBody.innerHTML = ''; 
+
+            cartItems.forEach(item => {
+                const row = cartTableBody.insertRow();
+                const nameCell = row.insertCell();
+                const priceCell = row.insertCell();
+
+                nameCell.textContent = item.nombre;
+                priceCell.textContent = 'MX$' + item.precio;
+            });
+        }
+
+        function mostrarCarrito() {
+            document.getElementById('shoppingCartWindow').style.display = 'block';
+        }
+
+        function ocultarCarrito() {
+            document.getElementById('shoppingCartWindow').style.display = 'none';
+        }
+
+        document.getElementById('checkoutBtn').addEventListener('click', function() {
+
+            console.log("Checkout Button Clicked");
+            console.log("Items in Cart:", cartItems);
+        
+            cartItems = [];
+            actualizarCarrito();
+            ocultarCarrito();
+        });
+
+        </script>
+    </body>
+    </html>

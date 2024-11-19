@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Mercado Artesanal</title>
+    <link rel="stylesheet" type="text/css" href="cris.css"> 
+</head>
+<style>
+/* Your existing CSS */
+
+/* Shopping Cart Styles */
+#shoppingCart {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Ensure it stays on top */
+}
+
+#shoppingCart .cartItem {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+#shoppingCart .cartItem:last-child {
+    border-bottom: none;
+}
+
+#shoppingCart .checkoutBtn {
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#shoppingCart .checkoutBtn:hover {
+    background-color: #003366;
+}
+.boton-regresar{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color:#d9b89b;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.boton-regresar:hover {
+    background-color: #0056b3
+}
+
+
+#shoppingCartWindow {
+    display: none; 
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 300px; 
+}
+
+#shoppingCartWindow h2 {
+    margin-top: 0;
+}
+
+#shoppingCartWindow table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#shoppingCartWindow th,
+#shoppingCartWindow td {
+    text-align: left;
+    padding: 8px;
+}
+
+#shoppingCartWindow th {
+    background-color: #f2f2f2;
+}
+
+</style>
+<body>
+    <header>
+        <div class="container">
+            <h1>Objetos Artesanales</h1>
+        </div>
+    </header>
+    <section id="categorias">
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/fui.jpg alt="">
+            <h2>Escapulario <br> religioso<br> chico</h2>
+            <p>MX$1 374.65+</p>
+            <button onclick="agregarAlCarrito('Escapulario religioso chico', '1374.65')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/feliz.jpg alt="">
+            <h2>Alcancia<br>puerquito</h2>
+            <p>MX$75.00+</p>
+            <button onclick="agregarAlCarrito('Alcancia puerquito', '75.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/contigo.jpg alt="">
+            <h2>Collar tejido <br>Alambrismo</h2>
+            <p>MX$590.00+</p>
+            <button onclick="agregarAlCarrito('Collar tejido Alambrismo','590.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/gracias.jpg alt="">
+            <h2>Collar de vitral</h2>
+            <p>MX$90.00+</p>
+            <button onclick="agregarAlCarrito('Collar de vitral', '90.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/portodo.jpg alt="">
+            <h2>Monedero de<br>Gamuza Pirogramada<br>Mediano</h2>
+            <p>MX$22.00+</p>
+            <button onclick="agregarAlCarrito('Monedero de Gamuza Pirogramada Mediano', '22.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/increible.jpg alt="">
+            <h2>Plato pozolero<br>mexicano de <br>barro artesanal</h2>
+            <p>MX$832.00+</p>
+            <button onclick="agregarAlCarrito('Plato pozolero mexicano de barro artesanal', '832.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+         <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/tueres.jpg alt="">
+            <h2>Diadema cristal<br>Alambrista</h2>
+            <p>MX$110.00+</p>
+            <button onclick="agregarAlCarrito('Diadema cristal Alambrista', '110.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+        <div class="categoria">
+            <img src=C:\Users\Rigo\Downloads\cris/tueres.jpg alt="">
+            <h2>Morral de ixtle <br>decorado con colores</h2>
+            <p>MX$122.00+</p>
+            <button onclick="agregarAlCarrito('Morral de ixtle decorado con colores', '122.00')" class="boton-regresar">Añadir al carrito</button>
+        </div>
+
+    </section>
+    <a href="C:\Users\Rigo\Downloads\cris/comercio.html"
+     class="boton-regresar" >Regresar</a>
+
+    <div id="shoppingCartWindow">
+        <h2>Tu Carrito</h2>
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th>producto</th>
+                    <th>Precio</th>
+                    <th>cantidad</th>
+                    <th>sub total</th>
+                </tr>
+            </thead>
+            <tbody id="cartTableBody">
+                </tbody>
+        </table>
+        <button id="checkoutBtn" class="checkoutBtn">Finalizar</button>
+    </div>
+
+    <script>
+        let cartItems = []; 
+
+        function agregarAlCarrito(nombre, precio) {
+            cartItems.push({ nombre: nombre, precio: precio });
+            actualizarCarrito();
+            mostrarCarrito();
+        }
+
+        function actualizarCarrito() {
+            const cartTableBody = document.getElementById('cartTableBody');
+            cartTableBody.innerHTML = ''; 
+
+            cartItems.forEach(item => {
+                const row = cartTableBody.insertRow();
+                const nameCell = row.insertCell();
+                const priceCell = row.insertCell();
+
+                nameCell.textContent = item.nombre;
+                priceCell.textContent = 'MX$' + item.precio;
+            });
+        }
+
+        function mostrarCarrito() {
+            document.getElementById('shoppingCartWindow').style.display = 'block';
+        }
+
+        function ocultarCarrito() {
+            document.getElementById('shoppingCartWindow').style.display = 'none';
+        }
+
+        // Event listener for the "Checkout" button
+        document.getElementById('checkoutBtn').addEventListener('click', function() {
+            // Handle checkout logic here. You can use cartItems to process the order
+            console.log("Checkout Button Clicked");
+            console.log("Items in Cart:", cartItems);
+            // Clear the cart after checkout
+            cartItems = [];
+            actualizarCarrito();
+            ocultarCarrito();
+        });
+
+        </script>
+    </body>
+    </html>

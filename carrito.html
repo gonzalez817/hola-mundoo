@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #d9b89d;
+        }
+
+        .container {
+            background-color: #ffe8e0;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Adjust width as needed */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Carrito</h2>
+        <table id="shoppingCart">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Talla</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <label for="total">Total:</label>
+            <input type="text" id="total" readonly>
+        </div>
+        <div class="buttons">
+            <button id="C:\Users\Rigo\Downloads\cris/comercio.html">Volver a la tienda</button>
+            <button id="calcularBtn">Calcular compra</button>
+            <button id="C:\Users\Rigo\Downloads\cris/compra.html">Comprar</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to update the cart table with data from the database
+        function updateCartTableFromDatabase() {
+            let cartTable = document.getElementById("shoppingCart").getElementsByTagName("tbody")[0];
+            cartTable.innerHTML = ""; // Clear the table
+
+            // Use AJAX to fetch data from cart_data.php
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "cart_data.php", true); 
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    cartTable.innerHTML = xhr.responseText; // Update the table with PHP data
+                } else {
+                    console.error("Error fetching data from database.");
+                }
+            };
+            xhr.send();
+        }
+
+        // Call updateCartTableFromDatabase() when the page loads
+        window.onload = function() {
+            updateCartTableFromDatabase();
+        };
+    </script>
+</body>
+</html>
